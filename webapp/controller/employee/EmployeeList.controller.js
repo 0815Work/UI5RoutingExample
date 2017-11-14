@@ -1,0 +1,15 @@
+sap.ui.define([
+	"UI5RoutingExample/controller/BaseController"
+], function (BaseController) {
+		"use strict";
+		return BaseController.extend("UI5RoutingExample.controller.employee.EmployeeList", {
+			onListItemPressed: function (oEvent) {
+				var oItem, oCtx;
+				oItem = oEvent.getSource();
+				oCtx = oItem.getBindingContext();
+				this.getRouter().navTo("employee", {
+					employeeId : oCtx.getProperty("EmployeeID")
+				});
+			}
+		});
+});
